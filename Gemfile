@@ -10,7 +10,7 @@ gem 'propshaft'
 gem 'puma'
 gem 'stimulus-rails'
 gem 'turbo-rails'
-# gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3.1.7"
 gem 'bootsnap', require: false
 gem 'kamal', require: false
 gem 'solid_cable'
