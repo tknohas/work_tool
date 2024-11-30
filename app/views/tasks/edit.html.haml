@@ -1,0 +1,4 @@
+%h2.text-center.mt-4.mb-4 タスク編集
+.container.mb-4
+  = button_to '削除', task_path(@task), method: :delete, data: { turbo_confirm: '本当に削除しますか？' }, class: 'btn btn-outline-danger'
+= render 'tasks/form', task: @task
