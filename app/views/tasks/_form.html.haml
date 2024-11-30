@@ -1,0 +1,10 @@
+.container
+  .card
+    .card-body
+      = simple_form_for task do |f|
+        = render 'shared/error_messages', resource: task
+        = f.input :title
+        = f.input :description
+        = f.input :priority
+        .text-center
+          = f.submit class: 'btn btn-primary'
