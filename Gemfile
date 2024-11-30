@@ -2,21 +2,21 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 8.0.0'
 
+gem 'bcrypt'
+gem 'bootsnap', require: false
 gem 'cssbundling-rails'
 gem 'jbuilder'
 gem 'jsbundling-rails'
+gem 'kamal', require: false
 gem 'pg'
 gem 'propshaft'
 gem 'puma'
-gem 'stimulus-rails'
-gem 'turbo-rails'
-# gem "bcrypt", "~> 3.1.7"
-gem 'bootsnap', require: false
-gem 'kamal', require: false
 gem 'solid_cable'
 gem 'solid_cache'
 gem 'solid_queue'
+gem 'stimulus-rails'
 gem 'thruster', require: false
+gem 'turbo-rails'
 
 gem 'haml-rails'
 gem 'html2haml'
