@@ -18,6 +18,7 @@ gem 'stimulus-rails'
 gem 'thruster', require: false
 gem 'turbo-rails'
 
+gem 'commonmarker'
 gem 'haml-rails'
 gem 'html2haml'
 gem 'simple_form'
