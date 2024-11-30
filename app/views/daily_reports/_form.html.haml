@@ -1,0 +1,8 @@
+.container
+  .card
+    .card-body
+      = simple_form_for daily_report do |f|
+        = render 'shared/error_messages', resource: daily_report
+        = f.input :content
+        .text-center
+          = f.submit class: 'btn btn-primary'

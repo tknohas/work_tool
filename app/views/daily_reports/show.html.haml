@@ -1,0 +1,6 @@
+%h2.text-center.mt-4.mb-4 日報
+.container
+  = link_to '編集', edit_daily_report_path(@daily_report), class: 'btn btn-outline-primary mb-4'
+  .card
+    .card-body
+      = markdown_to_html(@daily_report.content)
