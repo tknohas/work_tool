@@ -1,0 +1,9 @@
+%h2.text-center.mt-4.mb-4 KPT作成
+.container
+  .card
+    .card-body
+      = simple_form_for [:daily_report, @kpt_item], url: daily_report_kpt_item_path do |f|
+        = render 'shared/error_messages', resource: @kpt_item
+        = f.input :content
+        .text-center
+          = f.submit class: 'btn btn-primary'
