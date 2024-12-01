@@ -4,3 +4,5 @@
   .card
     .card-body
       = markdown_to_html(@daily_report.content)
+      - if @daily_report.kpt_item.present?
+        = markdown_to_html(@daily_report.kpt_item.content)

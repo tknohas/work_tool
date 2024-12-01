@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_30_145345) do
+ActiveRecord::Schema[8.0].define(version: 2024_11_30_155319) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -20,6 +20,14 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_30_145345) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_daily_reports_on_user_id"
+  end
+
+  create_table "kpt_items", force: :cascade do |t|
+    t.bigint "daily_report_id", null: false
+    t.text "content", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["daily_report_id"], name: "index_kpt_items_on_daily_report_id", unique: true
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -49,5 +57,6 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_30_145345) do
   end
 
   add_foreign_key "daily_reports", "users"
+  add_foreign_key "kpt_items", "daily_reports"
   add_foreign_key "sessions", "users"
 end
