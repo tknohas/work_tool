@@ -1,3 +1,3 @@
 class KptItem < ApplicationRecord
-  belongs_to :daily_report
+  belongs_to :user
 end

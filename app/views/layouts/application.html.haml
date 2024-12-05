@@ -28,5 +28,11 @@
       .ms-auto.me-2
         - if authenticated?
           .d-inline-block
+            = link_to '完了済みタスク', tasks_path(completed: true), class: 'text-white text-decoration-none me-2'
+          .d-inline-block
+            = link_to '日報作成', new_daily_report_path, class: 'text-white text-decoration-none me-2'
+          .d-inline-block
+            = link_to 'KPT', new_kpt_item_path, class: 'text-white text-decoration-none me-2'
+          .d-inline-block
             = button_to 'ログアウト', session_path, method: :delete, class: 'btn btn-outline-danger'
     = yield

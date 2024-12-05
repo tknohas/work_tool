@@ -2,6 +2,11 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
 
   def index
+    @tasks = if params[:completed].present?
+               Task.complete.latest_completed
+             else
+               Task.incomplete.latest_created
+             end
   end
 
   def show
@@ -14,7 +19,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(tasks_params)
     if @task.save
-      redirect_to tasks_path, notice: '登録しました'
+      redirect_to task_path(@task), notice: '登録しました'
     else
       render :new
     end
@@ -25,7 +30,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(tasks_params)
-      redirect_to tasks_path, notice: '変更しました'
+      redirect_to task_path(@task), notice: '変更しました'
     else
       render :edit
     end
