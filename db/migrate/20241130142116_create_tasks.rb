@@ -3,8 +3,9 @@ class CreateTasks < ActiveRecord::Migration[8.0]
     create_table :tasks do |t|
       t.string :title, null: false
       t.text :description, null: false
+      t.datetime :start_at
+      t.datetime :stopped_at
       t.datetime :completed_at
-      t.string :priority # 一旦null許可
 
       t.timestamps
     end

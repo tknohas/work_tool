@@ -1,2 +1,20 @@
-%h1 Tasks#index
-%p Find me in app/views/tasks/index.html.haml
+.container
+  %h2.text-center.mt-4 やること一覧
+  .d-flex.justify-content-end.mb-3
+    = link_to '新規作成', new_task_path, class: 'btn btn-primary'
+  %table.table.table-striped.table-hover
+    %thead.table-light
+      %tr
+        %th やること
+        %th 登録日
+        %th
+    %tbody
+      - @tasks.each do |task|
+        %tr
+          %td= link_to task.title, task_path(task), class: 'text-decoration-none'
+          %td= task.created_at.strftime('%Y/%m/%d')
+          %td
+            - if task.completed_at.present?
+              = button_to '未完了にする', task_completed_path(task), method: :delete, data: { turbo_confirm: '未完了にしますか？' }, class: 'btn btn-outline-danger'
+            - else
+              = button_to '完了', task_completed_path(task), method: :post, class: 'btn btn-outline-success'

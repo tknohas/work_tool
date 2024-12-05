@@ -1,0 +1,10 @@
+%h2.text-center.mt-4.mb-4 KPT
+.container
+  .card
+    .card-body
+      %h4.card-title K
+      = markdown_to_html(@kpt_item.keep)
+      %h4.card-title P
+      = markdown_to_html(@kpt_item.problem)
+      %h4.card-title T
+      = markdown_to_html(@kpt_item.try)

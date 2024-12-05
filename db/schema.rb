@@ -23,11 +23,13 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_30_155319) do
   end
 
   create_table "kpt_items", force: :cascade do |t|
-    t.bigint "daily_report_id", null: false
-    t.text "content", null: false
+    t.bigint "user_id", null: false
+    t.text "keep", null: false
+    t.text "problem", null: false
+    t.text "try", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["daily_report_id"], name: "index_kpt_items_on_daily_report_id", unique: true
+    t.index ["user_id"], name: "index_kpt_items_on_user_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -42,6 +44,8 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_30_155319) do
   create_table "tasks", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", null: false
+    t.datetime "start_at"
+    t.datetime "stopped_at"
     t.datetime "completed_at"
     t.string "priority"
     t.datetime "created_at", null: false
@@ -57,6 +61,6 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_30_155319) do
   end
 
   add_foreign_key "daily_reports", "users"
-  add_foreign_key "kpt_items", "daily_reports"
+  add_foreign_key "kpt_items", "users"
   add_foreign_key "sessions", "users"
 end
