@@ -7,19 +7,20 @@ class TasksController < ApplicationController
              else
                Task.incomplete.latest_created
              end
+    @task = Current.user.tasks.build
   end
 
   def show
   end
 
   def new
-    @task = Task.new
+    @task = Current.user.tasks.build
   end
 
   def create
-    @task = Task.new(tasks_params)
+    @task = Current.user.tasks.build(tasks_params)
     if @task.save
-      redirect_to task_path(@task), notice: '登録しました'
+      redirect_to tasks_path, notice: '登録しました'
     else
       render :new
     end

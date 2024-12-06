@@ -1,0 +1,4 @@
+%ul
+  - @kpt_items.each do |kpt|
+    %li
+      = link_to "#{l(kpt.created_at, format: :default)}に作成されたKPT", kpt_item_path(kpt)

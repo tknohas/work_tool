@@ -2,10 +2,8 @@
 .container
   .card
     .card-body
-      = simple_form_for @kpt_item do |f|
-        = render 'shared/error_messages', resource: @kpt_item
-        = f.input :keep
-        = f.input :problem
-        = f.input :try
-        .text-center
-          = f.button :submit, class: 'btn btn-primary'
+      = render 'kpt_items/form', kpt_item: @kpt_item
+
+      #suggestion
+        - if @try_suggestion.present?
+          %p= @try_suggestion

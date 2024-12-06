@@ -1,0 +1,8 @@
+.card-body
+  = simple_form_for kpt_item do |f|
+    = render 'shared/error_messages', resource: kpt_item
+    = f.input :keep
+    = f.input :problem
+    = f.input :try
+    .text-center
+      = f.button :submit, class: 'btn btn-primary'
