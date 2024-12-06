@@ -1,0 +1,12 @@
+%h2.text-center.mt-4.mb-4 KPT編集
+.container
+  .card
+    .card-body
+      = render 'kpt_items/form', kpt_item: @kpt_item
+
+      - if @kpt_item.persisted?
+        = button_to 'Tryを提案', suggest_try_kpt_item_path(@kpt_item), method: :get, remote: true, id: 'suggest-try-btn'
+
+      #suggestion
+        - if @try_suggestion.present?
+          %p= @try_suggestion

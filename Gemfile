@@ -22,6 +22,7 @@ gem 'commonmarker'
 gem 'haml-rails'
 gem 'html2haml'
 gem 'simple_form'
+gem 'ruby-openai'
 
 group :development, :test do
   gem 'brakeman', require: false

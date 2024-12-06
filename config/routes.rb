@@ -12,5 +12,11 @@ Rails.application.routes.draw do
     resource :stopped, only: %i[create destroy], module: :tasks
   end
   resources :daily_reports, only: %i[index show new create edit update]
-  resources :kpt_items, only: %i[index new create show]
+  resources :kpt_items, only: %i[index new create show edit update] do
+    member do
+      get 'suggest_try'
+    end
+  end
+
+  post 'kpt_items/suggest_try', to: 'kpt_items#suggest_try'
 end

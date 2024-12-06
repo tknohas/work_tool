@@ -1,0 +1,10 @@
+%h2.text-center.mt-4.mb-4 AIによる提案
+.container
+  .card
+    .card-body
+      %p
+        %strong P:
+        = markdown_to_html(@kpt_item.problem)
+      %p
+        %strong tryの提案:
+        = markdown_to_html(@try_suggestion)

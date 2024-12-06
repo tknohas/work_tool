@@ -1,4 +1,6 @@
 class Task < ApplicationRecord
+  belongs_to :user
+
   scope :incomplete, -> { where(completed_at: nil) }
   scope :complete, -> { where.not(completed_at: nil) }
   scope :latest_completed, -> { order(completed_at: :desc) }
