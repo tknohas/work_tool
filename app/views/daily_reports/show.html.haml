@@ -1,6 +1,14 @@
-%h2.text-center.mt-4.mb-4 日報
+%h2.text-center.mt-4.mb-4=link_to '日報', edit_daily_report_path(@daily_report, disciple: true), class: 'text-decoration-none text-black'
 .container
-  = link_to '編集', edit_daily_report_path(@daily_report), class: 'btn btn-outline-primary mb-4'
-  .card
-    .card-body
-      = markdown_to_html(@daily_report.content)
+  - if Current.user == @daily_report.user
+    = link_to '編集', edit_daily_report_path(@daily_report), class: 'btn btn-outline-primary mb-4'
+    .card
+      .card-body
+        = markdown_to_html(@daily_report.content)
+        - if @daily_report.memo.present?
+          %h1 良かったこと
+          = markdown_to_html(@daily_report.memo)
+  - else
+    .card
+      .card-body
+        = markdown_to_html(@daily_report.content)

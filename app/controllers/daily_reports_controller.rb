@@ -2,6 +2,7 @@ class DailyReportsController < ApplicationController
   before_action :set_daily_report, only: %i[show edit update]
 
   def index
+    @daily_reports = DailyReport.order(created_at: :desc)
   end
 
   def show
@@ -34,7 +35,7 @@ class DailyReportsController < ApplicationController
   private
 
   def daily_report_params
-    params.expect(daily_report: %i[content])
+    params.expect(daily_report: %i[content memo])
   end
 
   def set_daily_report

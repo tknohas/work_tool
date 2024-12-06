@@ -4,7 +4,9 @@
     .card-body
       = render 'kpt_items/form', kpt_item: @kpt_item
       - if @kpt_item.persisted?
+        = button_to 'Problemを深堀る', dig_into_problem_kpt_item_path(@kpt_item, format: :turbo_stream),
+          method: :get, data: { turbo_frame: 'dig_into_frame' }, class: 'btn btn-outline-dark mb-2'
+        %turbo-frame#dig_into_frame
         = button_to 'Tryを提案', suggest_try_kpt_item_path(@kpt_item, format: :turbo_stream),
           method: :get, data: { turbo_frame: 'try_suggestion_frame' }, class: 'btn btn-outline-dark'
-
-      %turbo-frame#try_suggestion_frame
+        %turbo-frame#try_suggestion_frame

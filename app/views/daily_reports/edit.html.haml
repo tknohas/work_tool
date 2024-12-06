@@ -1,2 +1,2 @@
-%h2.text-center.mt-4.mb-4 日報編集
-= render 'daily_reports/form', daily_report: @daily_report
+%h2.text-center.mt-4.mb-4=link_to '日報編集', edit_daily_report_path(@daily_report, disciple: true), class: 'text-decoration-none text-black'
+= render 'daily_reports/form', daily_report: @daily_report, disciple: params[:disciple]

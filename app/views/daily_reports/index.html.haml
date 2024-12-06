@@ -1,2 +1,7 @@
-%h1 DailyReports#index
-%p Find me in app/views/daily_reports/index.html.haml
+%h2.text-center.mt-4.mb-4 日報一覧
+.container
+  = link_to '登録', new_daily_report_path, class: 'btn btn-primary mb-4'
+  %ul
+    - @daily_reports.each do |report|
+      %li
+        = link_to "#{l(report.created_at, format: :default)}に作成された日報", daily_report_path(report)
