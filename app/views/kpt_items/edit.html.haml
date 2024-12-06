@@ -3,10 +3,8 @@
   .card
     .card-body
       = render 'kpt_items/form', kpt_item: @kpt_item
-
       - if @kpt_item.persisted?
-        = button_to 'Tryを提案', suggest_try_kpt_item_path(@kpt_item), method: :get, remote: true, id: 'suggest-try-btn'
+        = button_to 'Tryを提案', suggest_try_kpt_item_path(@kpt_item, format: :turbo_stream),
+          method: :get, data: { turbo_frame: 'try_suggestion_frame' }, class: 'btn btn-outline-dark'
 
-      #suggestion
-        - if @try_suggestion.present?
-          %p= @try_suggestion
+      %turbo-frame#try_suggestion_frame

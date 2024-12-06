@@ -59,8 +59,8 @@ class KptItemsController < ApplicationController
 
 
     respond_to do |format|
-      format.html # suggest_try.html.erb
-      format.json { render json: { try: @try_suggestion } }
+      format.turbo_stream
+      format.html
     end
   end
 

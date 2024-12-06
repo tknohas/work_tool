@@ -1,0 +1,4 @@
+= turbo_stream.replace "try_suggestion_frame" do
+  #suggestion
+  - if @try_suggestion.present?
+    %p= markdown_to_html(@try_suggestion)
