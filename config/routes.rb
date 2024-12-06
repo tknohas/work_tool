@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :kpt_items, only: %i[index new create show edit update] do
     member do
       get 'suggest_try'
+      get 'dig_into_problem'
     end
   end
 

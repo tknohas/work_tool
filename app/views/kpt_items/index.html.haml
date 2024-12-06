@@ -1,4 +1,7 @@
-%ul
-  - @kpt_items.each do |kpt|
-    %li
-      = link_to "#{l(kpt.created_at, format: :default)}に作成されたKPT", kpt_item_path(kpt)
+%h2.text-center.mt-4.mb-4 KPT一覧
+.container
+  = link_to '登録', new_kpt_item_path, class: 'btn btn-primary mb-4'
+  %ul
+    - @kpt_items.each do |kpt|
+      %li
+        = link_to "#{l(kpt.created_at, format: :default)}に作成されたKPT", kpt_item_path(kpt)

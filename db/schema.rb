@@ -17,6 +17,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_30_155319) do
   create_table "daily_reports", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.text "content", null: false
+    t.text "memo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_daily_reports_on_user_id"
